@@ -17,12 +17,16 @@
 
 
 
-	<!-- 引入jdbc配置文件 <context:property-placeholder location="classpath:dbconfig.properties" 
-		/> <bean id="propertyConfigurer1" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
-		<property name="order" value="1"/> <property name="ignoreResourceNotFound" 
-		value="true"/> <property name="ignoreUnresolvablePlaceholders" value="true" 
-		/> <property name="location" value="file:/etc/tomcat5/backend/dbconfig-bus.properties"/> 
-		</bean> -->
+	<!-- 引入jdbc配置文件 -->
+	<context:property-placeholder location="classpath:dbconfig.properties" />
+	<bean id="propertyConfigurer1"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="location"
+			value="file:/etc/tomcat5/backend/dbconfig-bus.properties" />
+	</bean>
 	<bean id="propertyConfigurer2"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="order" value="2" />
