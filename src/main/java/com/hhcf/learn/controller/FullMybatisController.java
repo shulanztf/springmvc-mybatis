@@ -1,13 +1,11 @@
 package com.hhcf.learn.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,17 +25,17 @@ public class FullMybatisController {
 	private static Logger logger = LogManager.getLogger(FullMybatisController.class);
 	@Autowired
 	private FullService fullService;
-//	https://git.coding.net/shulanztf/springmvc-mybatis.git
 
 	/**
 	 * 数据列表查询
 	 * 
+	 * @see /springmvc-mybatis/fullMybatis/findUsers.do
 	 * @param request
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findUsers")
 	public Object findUsers(HttpServletRequest request) {
-		logger.info("nginx反向代理");
+		logger.info("列表数据查询");
 		return this.fullService.findUsers(request);
 	}
 
