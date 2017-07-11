@@ -39,8 +39,7 @@ public class FullMybatisController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findUsers", method = RequestMethod.POST)
-	public Object findUsers(HttpServletRequest request,  String status,  String delete_flag) {
-		logger.info("参数：" + status + "|" + delete_flag);
+	public Object findUsers(HttpServletRequest request) {
 		Iterator<?> param = request.getParameterMap().keySet().iterator();
 		for (; param.hasNext();) {
 			String key = param.next().toString();
@@ -48,8 +47,7 @@ public class FullMybatisController {
 		}
 
 		logger.info("列表数据查询");
-//		return this.fullService.findUsers(request);
-		return "33aaa";
+		return this.fullService.findUsers(request);
 	}
 
 }

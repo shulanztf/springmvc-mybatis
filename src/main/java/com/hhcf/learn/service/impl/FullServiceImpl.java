@@ -32,8 +32,7 @@ public class FullServiceImpl implements FullService {
 	public Object findUsers(HttpServletRequest request) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("delete_flag", 0);
-		params.put("status", request.getParameter("status"));
-//		params.put("status", 1);
+		params.put("status", Integer.valueOf(request.getParameter("status")));
 		List<UserModel> list = fullMybatisDao.findUsers(params);
 		return list;
 	}

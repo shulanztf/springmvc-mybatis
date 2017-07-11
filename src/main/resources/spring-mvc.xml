@@ -43,11 +43,8 @@
 				<ref bean="mappingJacksonHttpMessageConverter" /><!-- json转换器 -->
 			</list>
 		</property>
-		<!-- 
-		<property name="webBindingInitializer">
-			<bean class="org.jeecgframework.core.interceptors.MyWebBinding" />
-		</property>
-		 -->
+		<!-- <property name="webBindingInitializer"> <bean class="org.jeecgframework.core.interceptors.MyWebBinding" 
+			/> </property> -->
 	</bean>
 
 	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
@@ -60,12 +57,13 @@
 		<property name="prefix" value="/webpage/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+	<!-- SpringMVC 传参控制 -->
 	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-		p:defaultEncoding="UTF-8" p:maxUploadSize="2097152">
-		<property name="maxInMemorySize">
-			<value>4096</value>
-		</property>
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="2097152" />
+		<property name="maxInMemorySize" value="4096" />
 	</bean>
 
 	<!-- 系统错误转发配置[并记录错误日志] -->
@@ -91,11 +89,7 @@
 		</property>
 	</bean>
 
-
-
 	<mvc:annotation-driven />
-
-
 
 </beans> 
  
