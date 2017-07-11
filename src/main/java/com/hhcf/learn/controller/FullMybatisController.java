@@ -1,5 +1,8 @@
 package com.hhcf.learn.controller;
 
+import java.util.Iterator;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.LogManager;
@@ -7,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hhcf.learn.service.FullService;
@@ -33,8 +37,15 @@ public class FullMybatisController {
 	 * @param request
 	 */
 	@ResponseBody
-	@RequestMapping(value = "/findUsers")
-	public Object findUsers(HttpServletRequest request) {
+	@RequestMapping(value = "/findUsers", method = RequestMethod.POST)
+	public Object findUsers(HttpServletRequest request, String status, String delete_flag) {
+		logger.info("参数：" + status + "|" + delete_flag);
+		Iterator<?> param = request.getParameterMap().keySet().iterator();
+		for (; param.hasNext();) {
+			String key = param.next().toString();
+			logger.info("request参数:" + key + "|" + request.getParameter(key));
+		}
+
 		logger.info("列表数据查询");
 		return this.fullService.findUsers(request);
 	}
