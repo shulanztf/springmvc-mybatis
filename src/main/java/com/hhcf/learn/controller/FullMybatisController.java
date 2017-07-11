@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hhcf.learn.service.FullService;
@@ -38,7 +39,7 @@ public class FullMybatisController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findUsers", method = RequestMethod.POST)
-	public Object findUsers(HttpServletRequest request, String status, String delete_flag) {
+	public Object findUsers(HttpServletRequest request,  String status,  String delete_flag) {
 		logger.info("参数：" + status + "|" + delete_flag);
 		Iterator<?> param = request.getParameterMap().keySet().iterator();
 		for (; param.hasNext();) {
@@ -47,7 +48,8 @@ public class FullMybatisController {
 		}
 
 		logger.info("列表数据查询");
-		return this.fullService.findUsers(request);
+//		return this.fullService.findUsers(request);
+		return "33aaa";
 	}
 
 }
