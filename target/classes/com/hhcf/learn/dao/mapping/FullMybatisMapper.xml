@@ -5,7 +5,7 @@
 <mapper namespace="com.hhcf.learn.dao.FullMybatisDao">
 	<select id="findUsers" parameterType="java.util.Map" resultType="com.hhcf.learn.model.UserModel">
 	select t1.*
-	  from delete_flag t1
+	  from t_s_base_user t1
 	 where t1.delete_flag = #{delete_flag}
 	   and t1.status = #{status}
 	</select>

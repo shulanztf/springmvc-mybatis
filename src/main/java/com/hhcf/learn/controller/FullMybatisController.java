@@ -27,7 +27,8 @@ import com.hhcf.learn.service.FullService;
 @Controller
 @RequestMapping("/fullMybatis")
 public class FullMybatisController {
-	private static Logger logger = LogManager.getLogger(FullMybatisController.class);
+	private static Logger logger = LogManager
+			.getLogger(FullMybatisController.class);
 	@Autowired
 	private FullService fullService;
 
@@ -35,7 +36,6 @@ public class FullMybatisController {
 	 * 数据列表查询
 	 * 
 	 * @see /springmvc-mybatis/fullMybatis/findUsers.do
-	 * @param request
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findUsers", method = RequestMethod.POST)

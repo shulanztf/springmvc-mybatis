@@ -24,7 +24,7 @@
 
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/json;charset=UTF-8</value>
@@ -88,6 +88,13 @@
 			</props>
 		</property>
 	</bean>
+
+	<!-- 跨域支持
+	<mvc:cors>
+		<mvc:mapping path="/**" allowed-origins="http://sso.demo.com:8180"
+			allowed-methods="POST,GET" allow-credentials="true" max-age="1800" />
+	</mvc:cors>
+	 -->
 
 	<mvc:annotation-driven />
 
